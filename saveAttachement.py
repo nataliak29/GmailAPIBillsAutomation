@@ -18,7 +18,7 @@ def GetAttachments(service, user_id, msg_id, store_dir):
   try:
     message = service.users().messages().get(userId=user_id, id=msg_id).execute()
     file_data = base64.urlsafe_b64decode(message['payload']['parts'][0]['parts'][0]['body']['data'].encode('UTF-8'))
-    file_data_date=re.search("([0-9]{2}\/[0-9]{2}\/[0-9]{4} - [0-9]{2}\/[0-9]{2}\/[0-9]{4})", file_data.decode('utf-8'))
+    file_data_date = re.search("([0-9]{2}\/[0-9]{2}\/[0-9]{4} - [0-9]{2}\/[0-9]{2}\/[0-9]{4})", file_data.decode('utf-8'))
     print('Found attachememnt for billing period '+str(file_data_date.group()))
     file_data_date_start=file_data_date.group()[:10]
     file_data_date=file_data_date.group()[13:]
