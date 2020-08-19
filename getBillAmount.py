@@ -5,7 +5,7 @@ from getMessageIds import getMessageIds
 from telegram_bot_sendtext import telegram_bot_sendtext  
 from datetime import datetime, timedelta
 
-d = datetime.today() - timedelta(days=30)
+d = datetime.today() - timedelta(days=3)
 d_string=d.strftime("%Y/%m/%d")
 store_dir=os.path.dirname(__file__)+"/bills/"
 service=connectToGmail()
